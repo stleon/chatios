@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28DE88F30B32A4FD170C07B6 /* Pods_Chatios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF1647A50CF9A4300180BD9 /* Pods_Chatios.framework */; };
+		A4042ACD218C2CE3001E096D /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4042ACC218C2CE3001E096D /* ChatViewController.swift */; };
+		A4042ACF218C3789001E096D /* WsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4042ACE218C3789001E096D /* WsManager.swift */; };
 		A4138989218A2B710052605C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4138988218A2B710052605C /* AppDelegate.swift */; };
 		A413898B218A2B710052605C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A413898A218A2B710052605C /* ViewController.swift */; };
 		A413898E218A2B710052605C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A413898C218A2B710052605C /* Main.storyboard */; };
@@ -15,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4BF1647A50CF9A4300180BD9 /* Pods_Chatios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chatios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4042ACC218C2CE3001E096D /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		A4042ACE218C3789001E096D /* WsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WsManager.swift; sourceTree = "<group>"; };
 		A4138985218A2B710052605C /* Chatios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chatios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4138988218A2B710052605C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A413898A218A2B710052605C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +28,8 @@
 		A413898F218A2B730052605C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4138992218A2B730052605C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A4138994218A2B730052605C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E36B11CB4FA4980E0B1B1ACB /* Pods-Chatios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chatios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chatios/Pods-Chatios.debug.xcconfig"; sourceTree = "<group>"; };
+		FAFE785A9A06B640D0AC0145 /* Pods-Chatios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chatios.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chatios/Pods-Chatios.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28DE88F30B32A4FD170C07B6 /* Pods_Chatios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5EB484ACB84713EB02FABD47 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4BF1647A50CF9A4300180BD9 /* Pods_Chatios.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		91202BBFA1B168E14CE13390 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E36B11CB4FA4980E0B1B1ACB /* Pods-Chatios.debug.xcconfig */,
+				FAFE785A9A06B640D0AC0145 /* Pods-Chatios.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A413897C218A2B710052605C = {
 			isa = PBXGroup;
 			children = (
 				A4138987218A2B710052605C /* Chatios */,
 				A4138986218A2B710052605C /* Products */,
+				91202BBFA1B168E14CE13390 /* Pods */,
+				5EB484ACB84713EB02FABD47 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,10 +84,12 @@
 			children = (
 				A4138988218A2B710052605C /* AppDelegate.swift */,
 				A413898A218A2B710052605C /* ViewController.swift */,
+				A4042ACC218C2CE3001E096D /* ChatViewController.swift */,
 				A413898C218A2B710052605C /* Main.storyboard */,
 				A413898F218A2B730052605C /* Assets.xcassets */,
 				A4138991218A2B730052605C /* LaunchScreen.storyboard */,
 				A4138994218A2B730052605C /* Info.plist */,
+				A4042ACE218C3789001E096D /* WsManager.swift */,
 			);
 			path = Chatios;
 			sourceTree = "<group>";
@@ -71,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A4138997218A2B730052605C /* Build configuration list for PBXNativeTarget "Chatios" */;
 			buildPhases = (
+				0154E355558CB670EECE376C /* [CP] Check Pods Manifest.lock */,
 				A4138981218A2B710052605C /* Sources */,
 				A4138982218A2B710052605C /* Frameworks */,
 				A4138983218A2B710052605C /* Resources */,
+				1331187CD3C58DC9021B3383 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,13 +162,66 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0154E355558CB670EECE376C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Chatios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1331187CD3C58DC9021B3383 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Chatios/Pods-Chatios-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MessageInputBar/MessageInputBar.framework",
+				"${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageInputBar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chatios/Pods-Chatios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A4138981218A2B710052605C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				A413898B218A2B710052605C /* ViewController.swift in Sources */,
+				A4042ACD218C2CE3001E096D /* ChatViewController.swift in Sources */,
 				A4138989218A2B710052605C /* AppDelegate.swift in Sources */,
+				A4042ACF218C3789001E096D /* WsManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,12 +365,21 @@
 		};
 		A4138998218A2B730052605C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E36B11CB4FA4980E0B1B1ACB /* Pods-Chatios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5884YD2VRD;
+				FRAMEWORK_SEARCH_PATHS = "";
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MessageInputBar\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MessageKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Socket.IO-Client-Swift\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Starscream\"",
+				);
 				INFOPLIST_FILE = Chatios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -299,12 +393,21 @@
 		};
 		A4138999218A2B730052605C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FAFE785A9A06B640D0AC0145 /* Pods-Chatios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5884YD2VRD;
+				FRAMEWORK_SEARCH_PATHS = "";
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MessageInputBar\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MessageKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Socket.IO-Client-Swift\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Starscream\"",
+				);
 				INFOPLIST_FILE = Chatios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

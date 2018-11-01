@@ -1,0 +1,6 @@
+framework module Pods_Chatios {
+  umbrella header "Pods-Chatios-umbrella.h"
+
+  export *
+  module * { export * }
+}

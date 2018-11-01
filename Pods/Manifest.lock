@@ -1,0 +1,27 @@
+PODS:
+  - MessageInputBar (0.4.1):
+    - MessageInputBar/Core (= 0.4.1)
+  - MessageInputBar/Core (0.4.1)
+  - MessageKit (2.0.0-beta.1):
+    - MessageInputBar/Core
+  - Starscream (3.0.6)
+
+DEPENDENCIES:
+  - MessageInputBar (= 0.4.1)
+  - MessageKit (= 2.0.0-beta.1)
+  - Starscream (= 3.0.6)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - MessageInputBar
+    - MessageKit
+    - Starscream
+
+SPEC CHECKSUMS:
+  MessageInputBar: e81c7535347f1f7b923de7080409a535a004b6e4
+  MessageKit: 099fdb44465f877ea7ab24cccb5714a22f6fb9bc
+  Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
+
+PODFILE CHECKSUM: 47ea7c3454f0743d7488323b46841f91d53682e3
+
+COCOAPODS: 1.5.3

@@ -73,11 +73,10 @@
             </objects>
             <point key="canvasLocation" x="865" y="129"/>
         </scene>
-        <!--View Controller-->
+        <!--Chat View Controller-->
         <scene sceneID="7oq-iH-PCP">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="apa-ya-G1K" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="ljj-6j-o8g" sceneMemberID="viewController">
+                <viewController id="ljj-6j-o8g" customClass="ChatViewController" customModule="Chatios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bRv-IA-hYw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -85,6 +84,7 @@
                         <viewLayoutGuide key="safeArea" id="bnO-e9-lvX"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="apa-ya-G1K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2264" y="129"/>
         </scene>
