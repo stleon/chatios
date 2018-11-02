@@ -11,13 +11,13 @@ import Starscream
 class WsManager: WebSocketDelegate {
     static let connection = WsManager()
 
-    var socket: WebSocket = WebSocket(url: URL(string: "ws://localhost:8080/ws")!)
+    var socket: WebSocket = WebSocket(url: URL(string: AppConstants.ENDPOINT)!)
 
     func establish() {
         socket.delegate = self
         socket.connect()
     }
-    
+
     func close() {
         if socket.isConnected {
             socket.disconnect()

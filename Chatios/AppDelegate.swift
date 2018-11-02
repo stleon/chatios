@@ -8,6 +8,10 @@
 
 import UIKit
 
+struct AppConstants {
+    static let ENDPOINT: String = "ws://127.0.0.1:8080/ws"
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
