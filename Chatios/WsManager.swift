@@ -24,6 +24,12 @@ class WsManager: WebSocketDelegate {
         }
     }
 
+    func send(text: String) {
+        if socket.isConnected {
+            socket.write(string: text)
+        }
+    }
+
     func websocketDidConnect(socket: WebSocketClient) {
         print("websocketDidConnect")
     }

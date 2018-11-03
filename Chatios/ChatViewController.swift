@@ -19,11 +19,49 @@ class ChatViewController: MessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         WsManager.connection.establish()
-        sender = Sender(id: "1", displayName: "123")
+
+        sender = Sender(id: "0", displayName: "_")
+
+         WsManager.connection.socket.onText = { (text: String) in
+
+            let message = Message(
+                sender: Sender(id: "1", displayName: "_"),
+                text: text,
+                messageId: Message.generateId())
+
+            if text == "Got companion!" {
+                self.inputIsActive(flag: true)
+            }
+
+            self.messages.append(message)
+            self.messagesCollectionView.reloadData()
+            self.messagesCollectionView.scrollToBottom(animated: true)
+        }
+
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
-        messageInputBar.delegate = self
         messagesCollectionView.messagesDisplayDelegate = self
+
+        messageInputBar.delegate = self
+        messageInputBar.sendButton.title = "->"
+        messageInputBar.inputTextView.placeholder = ""
+        messageInputBar.inputTextView.isImagePasteEnabled = false
+
+        if let layout = messagesCollectionView.collectionViewLayout as? MessagesCollectionViewFlowLayout {
+            layout.setMessageIncomingAvatarSize(.zero)
+            layout.setMessageOutgoingAvatarSize(.zero)
+        }
+
+        self.inputIsActive(flag: false)
+
+        WsManager.connection.socket.onDisconnect = { (error: Error?) in
+            self.inputIsActive(flag: false)
+        }
+    }
+
+    func inputIsActive(flag: Bool) -> Void {
+        self.messageInputBar.sendButton.isEnabled = flag
+        self.messageInputBar.shouldManageSendButtonEnabledState = flag
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -58,10 +96,6 @@ extension ChatViewController: MessagesDataSource {
 }
 
 extension ChatViewController: MessagesLayoutDelegate {
-    func avatarSize(for message: MessageType, at indexPath: IndexPath,
-                    in messagesCollectionView: MessagesCollectionView) -> CGSize {
-        return .zero
-    }
 
     func heightForLocation(message: MessageType,
                            at indexPath: IndexPath,
@@ -79,9 +113,15 @@ extension ChatViewController: MessagesDisplayDelegate {
         return isFromCurrentSender(message: message) ? .blue : .gray
     }
 
+    func configureAvatarView(_ avatarView: AvatarView, for message: MessageType,
+                             at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
+        avatarView.isHidden = true
+    }
+
 }
 
 extension ChatViewController: MessageInputBarDelegate {
+
     func messageInputBar(
         _ inputBar: MessageInputBar,
         didPressSendButtonWith text: String) {
@@ -89,9 +129,11 @@ extension ChatViewController: MessageInputBarDelegate {
         let newMessage = Message(
             sender: sender,
             text: text,
-            messageId: UUID().uuidString)
+            messageId: Message.generateId())
 
         messages.append(newMessage)
+        WsManager.connection.send(text: newMessage.text)
+
         inputBar.inputTextView.text = ""
         messagesCollectionView.reloadData()
         messagesCollectionView.scrollToBottom(animated: true)

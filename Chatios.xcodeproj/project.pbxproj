@@ -10,19 +10,18 @@
 		28DE88F30B32A4FD170C07B6 /* Pods_Chatios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF1647A50CF9A4300180BD9 /* Pods_Chatios.framework */; };
 		A4042ACD218C2CE3001E096D /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4042ACC218C2CE3001E096D /* ChatViewController.swift */; };
 		A4042ACF218C3789001E096D /* WsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4042ACE218C3789001E096D /* WsManager.swift */; };
-		A4042AD3218CA84D001E096D /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4042AD2218CA84D001E096D /* Message.swift */; };
 		A4138989218A2B710052605C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4138988218A2B710052605C /* AppDelegate.swift */; };
 		A413898B218A2B710052605C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A413898A218A2B710052605C /* ViewController.swift */; };
 		A413898E218A2B710052605C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A413898C218A2B710052605C /* Main.storyboard */; };
 		A4138990218A2B730052605C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A413898F218A2B730052605C /* Assets.xcassets */; };
 		A4138993218A2B730052605C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4138991218A2B730052605C /* LaunchScreen.storyboard */; };
+		A4BAEC90218D9974008337AD /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BAEC8F218D9974008337AD /* Message.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4BF1647A50CF9A4300180BD9 /* Pods_Chatios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chatios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4042ACC218C2CE3001E096D /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		A4042ACE218C3789001E096D /* WsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WsManager.swift; sourceTree = "<group>"; };
-		A4042AD2218CA84D001E096D /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		A4138985218A2B710052605C /* Chatios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chatios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4138988218A2B710052605C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A413898A218A2B710052605C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -30,6 +29,7 @@
 		A413898F218A2B730052605C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4138992218A2B730052605C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A4138994218A2B730052605C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4BAEC8F218D9974008337AD /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		E36B11CB4FA4980E0B1B1ACB /* Pods-Chatios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chatios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chatios/Pods-Chatios.debug.xcconfig"; sourceTree = "<group>"; };
 		FAFE785A9A06B640D0AC0145 /* Pods-Chatios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chatios.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chatios/Pods-Chatios.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,7 +92,7 @@
 				A4138991218A2B730052605C /* LaunchScreen.storyboard */,
 				A4138994218A2B730052605C /* Info.plist */,
 				A4042ACE218C3789001E096D /* WsManager.swift */,
-				A4042AD2218CA84D001E096D /* Message.swift */,
+				A4BAEC8F218D9974008337AD /* Message.swift */,
 			);
 			path = Chatios;
 			sourceTree = "<group>";
@@ -223,7 +223,7 @@
 			files = (
 				A413898B218A2B710052605C /* ViewController.swift in Sources */,
 				A4042ACD218C2CE3001E096D /* ChatViewController.swift in Sources */,
-				A4042AD3218CA84D001E096D /* Message.swift in Sources */,
+				A4BAEC90218D9974008337AD /* Message.swift in Sources */,
 				A4138989218A2B710052605C /* AppDelegate.swift in Sources */,
 				A4042ACF218C3789001E096D /* WsManager.swift in Sources */,
 			);
@@ -379,7 +379,6 @@
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/MessageInputBar\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/MessageKit\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/Socket.IO-Client-Swift\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/Starscream\"",
 				);
 				INFOPLIST_FILE = Chatios/Info.plist;
@@ -407,7 +406,6 @@
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/MessageInputBar\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/MessageKit\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/Socket.IO-Client-Swift\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/Starscream\"",
 				);
 				INFOPLIST_FILE = Chatios/Info.plist;

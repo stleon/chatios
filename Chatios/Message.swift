@@ -26,4 +26,9 @@ extension Message: MessageType {
     var kind: MessageKind {
         return .text(text)
     }
+
+    static func generateId() -> String {
+        return UUID().uuidString
+    }
+
 }
