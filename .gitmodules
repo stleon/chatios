@@ -1,0 +1,3 @@
+[submodule "Chatios/deps/swift-to-bert"]
+	path = Chatios/deps/swift-to-bert
+	url = git@github.com:stleon/swift-to-bert.git

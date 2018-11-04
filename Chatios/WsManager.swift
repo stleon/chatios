@@ -24,9 +24,9 @@ class WsManager: WebSocketDelegate {
         }
     }
 
-    func send(text: String) {
+    func send(data: Data) {
         if socket.isConnected {
-            socket.write(string: text)
+            socket.write(data: data)
         }
     }
 
