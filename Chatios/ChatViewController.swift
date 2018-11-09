@@ -15,6 +15,7 @@ class ChatViewController: MessagesViewController {
 
     private var messages: [Message] = []
     private var sender: Sender!
+    private var can_send: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,20 +23,47 @@ class ChatViewController: MessagesViewController {
 
         sender = Sender(id: "0", displayName: "_")
 
-         WsManager.connection.socket.onText = { (text: String) in
+         WsManager.connection.socket.onData = { (data: Data) in
 
-            let message = Message(
-                sender: Sender(id: "1", displayName: "_"),
-                text: text,
-                messageId: Message.generateId())
+            // TODO: convert incoming data to swift tuple
 
-            if text == "Got companion!" {
-                self.inputIsActive(flag: true)
+            do {
+                let message = try Bert.decode(data: data as NSData) as! BertTuple
+
+                let tag = message.elements[0] as! BertAtom
+                if tag.value == "msg" {
+                    let tuple = message.elements[1] as! BertTuple
+                    let t = tuple.elements[0] as! BertAtom
+                    if t.value == "text" {
+                        let binary = tuple.elements[1] as! BertBinary
+                        let datastring = NSString(data: binary.value as Data, encoding: String.Encoding.utf8.rawValue)
+
+                        let message = Message(
+                            sender: Sender(id: "1", displayName: "_"),
+                            text: datastring! as String,
+                            messageId: Message.generateId())
+
+                        self.messages.append(message)
+                        self.messagesCollectionView.reloadData()
+                        self.messagesCollectionView.scrollToBottom(animated: true)
+                    }
+                } else if tag.value == "signal" {
+                    let binary = message.elements[1] as! BertBinary
+                    let datastring = NSString(data: binary.value as Data, encoding: String.Encoding.utf8.rawValue)
+
+                    if datastring! as String == "channel_created" {
+                        self.can_send = true
+                    } else if datastring! as String == "typing" {
+                        //
+                    }
+
+                }
+
+            }
+            catch {
+                print("decode error")
             }
 
-            self.messages.append(message)
-            self.messagesCollectionView.reloadData()
-            self.messagesCollectionView.scrollToBottom(animated: true)
         }
 
         messagesCollectionView.messagesDataSource = self
@@ -52,7 +80,7 @@ class ChatViewController: MessagesViewController {
             layout.setMessageOutgoingAvatarSize(.zero)
         }
 
-        self.inputIsActive(flag: false)
+        // self.inputIsActive(flag: false)
 
         WsManager.connection.socket.onDisconnect = { (error: Error?) in
             self.inputIsActive(flag: false)
@@ -126,16 +154,33 @@ extension ChatViewController: MessageInputBarDelegate {
         _ inputBar: MessageInputBar,
         didPressSendButtonWith text: String) {
 
-        let newMessage = Message(
-            sender: sender,
-            text: text,
-            messageId: Message.generateId())
+        if self.can_send {
+            let newMessage = Message(
+                sender: sender,
+                text: text,
+                messageId: Message.generateId())
 
-        messages.append(newMessage)
-        WsManager.connection.send(text: newMessage.text)
+            messages.append(newMessage)
 
-        inputBar.inputTextView.text = ""
-        messagesCollectionView.reloadData()
-        messagesCollectionView.scrollToBottom(animated: true)
+            // convert to bert
+            let tag = BertAtom(fromString: "msg")
+            let tuple = BertTuple(fromElements: [BertAtom(fromString: "text"),
+                                                 BertBinary(fromNSData: newMessage.text.data(using: .utf8)! as NSData)])
+            let message = BertTuple(fromElements: [tag, tuple])
+
+
+            do {
+                let binary = try Bert.encode(object: message)
+                WsManager.connection.send(data: binary as Data)
+            }
+            catch {
+                print("encode error")
+            }
+
+            inputBar.inputTextView.text = ""
+            messagesCollectionView.reloadData()
+            messagesCollectionView.scrollToBottom(animated: true)
+        }
+
     }
 }
